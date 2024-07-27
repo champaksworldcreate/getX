@@ -32,21 +32,40 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'GetX Exmple',
+        const    Text(
+              'GetX Example',
             ),
-            Obx(() => Text('${controller.count.value}',
+            Obx(() => Text('Last Activity: ${controller.lastoperation}     ${controller.count.value}',
                 style: Theme.of(context).textTheme.headlineMedium)),
             Obx(() => Text('${controller.count.value}',
                 style: Theme.of(context).textTheme.headlineMedium)),
             ElevatedButton(
               onPressed: controller.increment,
-              child: Text('Increment'),
+              child:const Text('Increment'),
             ),
             ElevatedButton(
               onPressed: controller.decrement,
-              child: Text('Decreement'),
+              child:const Text('Decrement'),
             ),
+            SizedBox(
+              height: 50,
+            ),
+            InkWell(
+              child: Container(
+                height: 50,
+                width: 100,
+                color: Colors.blue,
+                child: Center(
+                  child: Text("Click"),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondPage()),
+                );
+              },
+            )
           ],
         ),
       ),
